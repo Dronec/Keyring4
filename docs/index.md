@@ -1,4 +1,4 @@
-# Keyring4 User Manual
+#User Manual
 
 ## 1. Overview
 
