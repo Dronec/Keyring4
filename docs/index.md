@@ -20,6 +20,7 @@ Each slot is numbered `001` to `256`.
 ## 2. First Start and Unlocking
 
 ### First boot
+![Image](./assets/CreatePin.png)
 
 If no PIN has been stored yet, the device will ask you to:
 
@@ -38,13 +39,13 @@ If a PIN already exists, the lock screen shows `Enter PIN`.
 - The keypad digits are randomized every time the PIN pad appears
 - If the PIN is wrong, the device briefly shows `Wrong PIN` and then returns to the PIN entry state
 
-## 3. Screen Lock and Idle Behavior
+## 3. Screen Lock
 
 The device tracks touch activity.
 
 - After the configured dim timeout, the screen dims
 - After the configured lock timeout, the device locks and requires the PIN again
-- On the slots screen, the `Lock` button locks the device immediately
+- On the slots screen, the ![Lock](./assets/ScreenSlotLock.png) button locks the device immediately
 
 Default timeouts:
 
@@ -55,13 +56,15 @@ Default timeouts:
 
 After unlocking, the device opens the slots screen.
 
+![Screen slots](./assets/ScreenSlots.png)
+
 Top bar buttons:
 
-- `Lock`: lock immediately
-- Colour filter: filter the list by colour
-- Settings: open Settings
+- ![Lock](./assets/ScreenSlotLock.png) lock device immediately
+- ![Colour filter](./assets/ScreenSlotColour.png) filter the list by colour
+- ![Settings](./assets/ScreenSlotSettings.png) open Settings
 
-Slot list behavior:
+Slot list:
 
 - Tap a row to select a slot
 - Long-press a row to open the slot action menu
@@ -72,6 +75,8 @@ Slot list behavior:
 
 Long-press a slot to open its menu.
 
+![SlotMenu](./assets/SlotMenu.png)
+
 Available actions:
 
 - `Type`
@@ -81,7 +86,7 @@ Available actions:
 - `Delete`
 - `Cancel`
 
-If the slot does not contain a password yet, only `Create new` and `Cancel` are enabled.
+If the slot does not contain a password, only `Create new` and `Cancel` are enabled.
 
 ### Type
 
@@ -95,15 +100,17 @@ Important:
 
 ### Change label
 
+![Label menu](./assets/LabelMenu.png)
+
 Labels are stored per slot.
 
-Current device behavior:
-
-- Maximum length: 15 characters
-- The on-device label editor currently accepts only `A-Z` and `_`
+- Maximum label length: 15 characters
+- The on-device label editor currently accepts only `A-Z` and `_`, but you can use more characters when editing labels via USB Import/Export
 - Empty labels are allowed
 
 ### Set colour
+
+![Colour menu](./assets/ColourMenu.png)
 
 Available slot colours:
 
@@ -118,6 +125,8 @@ Available slot colours:
 These colours are also used by the filter button on the main slots screen.
 
 ### Create new
+
+![Create password](./assets/CreatePassword.png)
 
 This opens the password generator for the selected slot.
 
@@ -230,6 +239,8 @@ Tap the overlay to close it.
 
 Open `Settings -> USB Import / Export`.
 
+![USB](./assets/UsbDialog.png)
+
 The device first asks for the PIN again before starting the USB session.
 
 After successful PIN verification:
@@ -246,9 +257,7 @@ Session buttons:
 
 ### How the USB session works
 
-- The exported `password.csv` contains currently populated slots
-- Host edits are staged only
-- Slot changes are not committed until you press `Import keys`
+- The exported `password.csv` contains currently populated slots. You can back this file up to another device, edit, and save it, however saving it does not update passwords on the device until you press `Import keys`
 - `Cancel` closes the USB session and discards staged slot changes
 - Closing the session returns the device to HID mode
 
@@ -289,7 +298,7 @@ To clear a slot through CSV, leave the password field empty:
 005,,,0
 ```
 
-Import behavior:
+Import:
 
 - Valid lines are staged
 - Invalid lines are ignored
@@ -312,7 +321,7 @@ Rules:
 - Line 1 = WiFi SSID
 - Line 2 = WiFi password
 
-Use `Import WiFi` to save the file contents into device settings.
+You can edit and save this file, however you need to press  `Import WiFi` to save the file contents into device settings.
 
 ## 8. Firmware Update
 
@@ -322,7 +331,7 @@ The device shows a warning first. Press `OK` to start the update or `Cancel` to 
 
 Update flow:
 
-1. Connect to stored WiFi credentials
+1. Connect WiFi using stored WiFi credentials
 2. Synchronize time over NTP
 3. Check the update manifest
 4. Download and verify the OTA image
@@ -357,12 +366,7 @@ Factory reset removes:
 - saved settings
 - stored WiFi credentials
 
-## 10. Practical Notes
-
-- For production use, flash encryption and secure boot should be enabled
-- Current on-device label entry is more restrictive than CSV import; on-device editing accepts only `A-Z` and `_`
-
-## 11. Quick Reference
+## 10. Quick Reference
 
 ### Unlock
 
