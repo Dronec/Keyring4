@@ -1,83 +1,91 @@
 # User Manual
 
-## 1. Overview
+## 1. Welcome
 
-This device is a portable password vault with a touchscreen interface.
+This is your portable password vault with a touchscreen display.
 
-Main functions:
+What it can do:
 
-- Store up to 256 password slots
-- Protect access with an 8-digit PIN
-- Type stored passwords over USB HID keyboard emulation
-- Organize slots with short labels and colours
-- Generate new passwords on-device
-- Import/export passwords over USB mass storage
-- Store WiFi credentials for firmware updates
-- Dim and auto-lock after inactivity
+- Hold up to 256 passwords
+- Protect them with an 8-digit PIN
+- Type passwords into your computer over USB like a keyboard
+- Let you label and colour-code slots
+- Generate secure passwords on the device
+- Import and export passwords using USB storage
+- Store WiFi details for firmware updates (you don't have to, but it's nice to get an update once in a while)
+- Dim the screen and auto-lock when idle
 
-Each slot is numbered `001` to `256`.
+Each slot is numbered from `001` to `256`.
+
+---
 
 ## 2. First Start and Unlocking
 
 ### First boot
 ![Image](./assets/CreatePin.png)
 
-If no PIN has been stored yet, the device will ask you to:
+The first time you turn it on, the device asks you to:
 
-1. Create PIN
-2. Repeat PIN
+1. Create a PIN
+2. Repeat the PIN
 
-If both entries match, the PIN is saved and the device unlocks.
+If both entries match, the PIN is saved and you’re in.
 
-If they do not match, the device returns to PIN creation and you must try again.
+If they don’t match, you’ll need to try again.
 
 ### Normal unlock
 
-If a PIN already exists, the lock screen shows `Enter PIN`.
+After setup, the lock screen shows `Enter PIN`.
 
 - Enter exactly 8 digits
-- The keypad digits are randomized every time the PIN pad appears
-- If the PIN is wrong, the device briefly shows `Wrong PIN` and then returns to the PIN entry state
+- The keypad numbers move around each time for extra security
+- If the PIN is wrong, you’ll see `Wrong PIN` and can try again
+
+---
 
 ## 3. Screen Lock
 
-The device tracks touch activity.
+The device watches your touch activity.
 
-- After the configured dim timeout, the screen dims
-- After the configured lock timeout, the device locks and requires the PIN again
-- On the slots screen, the ![Lock](./assets/ScreenSlotLock.png) button locks the device immediately
+- After the dim timeout, the screen gets darker
+- After the lock timeout, it locks and asks for your PIN again
+- From the slots screen, tap the ![Lock](./assets/ScreenSlotLock.png) button if you want to lock the device immediately
 
-Default timeouts:
+Default settings:
 
 - Dim timeout: 60 seconds
 - Lock timeout: 120 seconds
 
+---
+
 ## 4. Main Slots Screen
 
-After unlocking, the device opens the slots screen.
+After unlocking, you’ll land on the slot list.
 
 ![Screen slots](./assets/ScreenSlots.png)
 
-Top bar buttons:
+Top buttons:
 
-- ![Lock](./assets/ScreenSlotLock.png) lock device immediately
-- ![Colour filter](./assets/ScreenSlotColour.png) filter the list by colour
+- ![Lock](./assets/ScreenSlotLock.png) lock now
+- ![Colour filter](./assets/ScreenSlotColour.png) filter by colour
 - ![Settings](./assets/ScreenSlotSettings.png) open Settings
 
-Slot list:
+Slot list behaviour:
 
-- Tap a row to select a slot
-- Long-press a row to open the slot action menu
-- Empty or unlabeled slots are shown with dotted placeholders
-- Coloured slots use a coloured row background
+- Tap a row to select it
+- Long-press a row to open the slot menu
+- Empty or unlabeled slots show dotted placeholders
+- Coloured slots have a matching row background
+
+---
 
 ## 5. Slot Actions
 
-Long-press a slot to open its menu.
+Long-press a slot to open the menu.
 
 ![SlotMenu](./assets/SlotMenu.png)
 
-Available actions:
+Actions available:
 
 - `Type`
 - `Change label`
@@ -86,33 +94,34 @@ Available actions:
 - `Delete`
 - `Cancel`
 
-If the slot does not contain a password, only `Create new` and `Cancel` are enabled.
+If the slot is empty, only `Create new` and `Cancel` are available.
 
 ### Type
 
-`Type` sends the stored password over USB keyboard emulation.
+`Type` sends the password over USB as if it was typed on a keyboard.
 
 Important:
 
-- The device must be connected to a host that has mounted it as a USB HID keyboard
-- The firmware types the password characters only
-- It does not automatically press `Enter` or `Tab`
+- The device must be connected to a host that accepts USB HID keyboard input (e.g. PC, Mac, Android or iOS phone)
+- It only types password characters
+- It does not press `Enter`, `Tab`, or any other key in the end
 
 ### Change label
 
 ![Label menu](./assets/LabelMenu.png)
 
-Labels are stored per slot.
+Labels belong to each slot.
 
-- Maximum label length: 15 characters
-- The on-device label editor currently accepts only `A-Z` and `_`, but you can use more characters when editing labels via USB Import/Export
-- Empty labels are allowed
+- Max length: 15 characters
+- On-device input only accepts `A-Z` and `_`
+- If you use USB import/export, more characters for labels are available
+- Labels can also be blank or not exist at all (but you'll have to remember the slot number where you stored THAT specific password)
 
 ### Set colour
 
 ![Colour menu](./assets/ColourMenu.png)
 
-Available slot colours:
+Available colours:
 
 - `No colour`
 - `Blue`
@@ -122,43 +131,45 @@ Available slot colours:
 - `Yellow`
 - `Orange`
 
-These colours are also used by the filter button on the main slots screen.
+These colours help you visually highlight and sort the slots (for example, Red - passwords for work, Green - personal, etc).
 
 ### Create new
 
 ![Create password](./assets/CreatePassword.png)
 
-This opens the password generator for the selected slot.
+Use this screen to generate a password for the selected slot.
 
 Generator options:
 
-- Length from 8 to 64 characters
+- Length: 8 to 64 characters
 - `Use letters`
 - `Use digits`
 - `Use special chars`
 
-The screen also shows an entropy estimate.
+You’ll also see an entropy estimate.
 
 Notes:
 
-- Default generator length is 16
-- Generated passwords are built from the enabled character classes
-- The current generator does not guarantee that every enabled class appears at least once
-- Creating a new password stores it directly into the selected slot
+- Default length is 16
+- The password is built from the enabled character types
+- The generator may not include every selected type in every password
+- Once created, the password is saved directly into that slot
 
 ### Delete
 
-`Delete` clears the selected slot completely:
+Deleting a slot removes:
 
 - password
 - label
 - colour
 
+---
+
 ## 6. Settings
 
-Open Settings from the gear button on the slots screen.
+Tap the gear button on the slots screen to open Settings.
 
-Available settings:
+What you can do:
 
 - `Lock Timeout`
 - `Dim Timeout`
@@ -172,7 +183,7 @@ Available settings:
 
 ### Lock Timeout
 
-Available presets:
+Choose from:
 
 - 30 s
 - 60 s
@@ -182,7 +193,7 @@ Available presets:
 
 ### Dim Timeout
 
-Available presets:
+Choose from:
 
 - 5 s
 - 15 s
@@ -190,50 +201,52 @@ Available presets:
 - 60 s
 - 90 s
 
-The device always keeps dim timeout earlier than lock timeout.
+The device ensures the dim timeout always happens before lock timeout.
 
 ### Flip screen
 
-`Flip screen` rotates the display by 180 degrees.
-
-The setting is applied immediately.
+This rotates the display 180° and takes effect immediately. Convenient if your USB cable is connected from the top of the device, like mine.
 
 ### Change PIN
 
-To change the PIN:
+To change your PIN:
 
-1. Enter the current PIN
-2. Enter the new PIN
-3. Repeat the new PIN
+1. Enter current PIN
+2. Enter new PIN
+3. Repeat new PIN
 
 Rules:
 
-- PIN length is always 8 digits
-- The keypad digits are randomized on every PIN screen
-- If the current PIN is wrong, the device shows an error and stays in the change flow
-- If the new PIN entries do not match, you must enter the new PIN again
+- PIN is always 8 digits
+- Keypad digits are randomized each time
+- if current PIN is wrong, you stay in the flow
+- if new PIN entries don’t match, you try again
 
 ### Security Status
 
 This overlay shows:
 
-- Flash encryption state
-- Flash encryption mode and key size when available
-- Password memory encryption state
-- SecureBootV2 state
+- flash encryption state
+- flash encryption mode and key size if available
+- password memory encryption state
+- SecureBootV2 status
 
-Tap the overlay to close it.
+Tap anywhere to close it.
+
+> The device you received is locked down, encrypted using AES-256, and signed with RSA-3072 key. Any attempt to tamper with the firmware in order to extract your super secret passwords will result in bricking. I'm not saying that it isn't possible, but surely it would be quite a difficult thing to do.
 
 ### About
 
 This overlay shows:
 
-- Application name and version
-- Device MAC address
-- Build date and time
-- Firmware image SHA-256
+- application name and version
+- device MAC address
+- build date and time
+- firmware image SHA-256
 
-Tap the overlay to close it.
+Tap to close.
+
+---
 
 ## 7. USB Import / Export
 
@@ -241,13 +254,13 @@ Open `Settings -> USB Import / Export`.
 
 ![USB](./assets/UsbDialog.png)
 
-The device first asks for the PIN again before starting the USB session.
+The device asks for your PIN before starting the USB session.
 
-After successful PIN verification:
+After PIN verification:
 
-- The device switches into USB mass storage mode
-- The user sees a USB drive containing `password.csv` and `wifi.txt`
-- The screen shows an import summary and action buttons
+- it switches to USB mass storage mode
+- you see a drive with `password.csv` and `wifi.txt`
+- the screen shows summary info and action buttons
 
 Session buttons:
 
@@ -255,15 +268,18 @@ Session buttons:
 - `Import WiFi`
 - `Cancel`
 
-### How the USB session works
+### How it works
 
-- The exported `password.csv` contains currently populated slots. You can back this file up to another device, edit, and save it, however saving it does not update passwords on the device until you press `Import keys`
-- `Cancel` closes the USB session and discards staged slot changes
-- Closing the session returns the device to HID mode
+- `password.csv` contains your current slots (labels, passwords, colour numbers)
+- you can back it up, edit it, and save it
+- changes only apply when you press `Import keys`
+- `Cancel` ends the session and discards staged changes
+
+> In USB mass storage mode, the passwords are shown in clear text. Whenever you back up your passwords, consider using the off grid device (e.g. a standalone PC), copy the password file to a USB stick and bury it somewhere, as I do. Repeat regularly.
 
 ### password.csv format
 
-Each line uses this format:
+Each line is:
 
 ```text
 slot,label,password,colour_id
@@ -280,124 +296,132 @@ Example:
 Rules:
 
 - `slot` must be `001` to `256`
-- `label` maximum length is 15 characters
-- `password` maximum length is 128 characters
-- `colour_id` must be:
-  - `0` = no colour / white
+- `label` max 15 characters
+- `password` max 128 characters
+- `colour_id` values:
+  - `0` = no colour
   - `1` = blue
   - `2` = green
   - `3` = red
   - `4` = violet
   - `5` = yellow
   - `6` = orange
-- Labels and passwords must not contain commas or line breaks
+- labels and passwords can’t include commas or line breaks
 
-To clear a slot through CSV, leave the password field empty:
+To clear a slot, leave the password field empty:
 
 ```text
 005,,,0
 ```
 
-Import:
+Import behavior:
 
-- Valid lines are staged
-- Invalid lines are ignored
-- The summary on screen shows:
+- valid lines are staged
+- invalid lines are ignored
+- the summary shows:
   - slots to update
   - slots to clear
   - invalid lines ignored
 
 ### wifi.txt format
 
-`wifi.txt` uses exactly two lines:
+`wifi.txt` must contain exactly two lines:
 
 ```text
 YOUR_WIFI_SSID
 YOUR_WIFI_PASSWORD
 ```
 
-Rules:
+- Line 1 = SSID
+- Line 2 = password
 
-- Line 1 = WiFi SSID
-- Line 2 = WiFi password
+Edit and save the file, then press `Import WiFi` to apply it.
 
-You can edit and save this file, however you need to press  `Import WiFi` to save the file contents into device settings.
+---
 
 ## 8. Firmware Update
 
 Open `Settings -> Firmware update`.
 
-The device shows a warning first. Press `OK` to start the update or `Cancel` to leave.
+The device will show a warning. Tap `OK` to continue or `Cancel` to go back.
 
-Update flow:
+What it does under the hood:
 
-1. Connect WiFi using stored WiFi credentials
-2. Synchronize time over NTP
+1. Connect to the WiFi using the stored WiFi credentials
+2. Sync time over NTP (we need this for encrypted connections)
 3. Check the update manifest
-4. Download and verify the OTA image
+4. If new version is available, download and verify the update
 5. Flash the new firmware
-6. Reboot on success
+6. Reboot automatically if successful
 
 Notes:
 
-- The update screen shows progress log lines
-- If no update is available, the device reports that it is already up to date
-- A successful OTA update reboots automatically
-- If the update fails or is canceled before reboot, the device returns to normal operation
+- the screen shows update progress
+- if no update is available, you’ll be told you’re up to date
+- a successful update reboots automatically
+- if the update fails or is canceled before reboot, the device goes back to normal mode
+
+Important recommendation:
+
+> Always back up your passwords before running a firmware update. If anything goes wrong during the update, you don’t want to lose access to your stored credentials.
+
+---
 
 ## 9. Factory Reset
 
 Open `Settings -> Factory Reset`.
 
-The device first shows a confirmation warning.
+The device asks you to confirm first.
 
 If you press `Proceed`:
 
-- A 30-second countdown starts
-- Press `Cancel` before the countdown ends to abort
-- If the countdown reaches zero, the device erases password memory and reboots
+- a 30-second countdown starts
+- press `Cancel` before it ends to stop it
+- if the countdown completes, the device erases password memory and reboots
 
 Factory reset removes:
 
 - stored PIN
 - slot labels
-- stored passwords
+- saved passwords
 - colours
-- saved settings
-- stored WiFi credentials
+- settings
+- WiFi credentials
+
+---
 
 ## 10. Quick Reference
 
 ### Unlock
 
-- Enter 8-digit PIN on randomized keypad
+- enter 8-digit PIN on the randomized keypad
 
 ### Open slot menu
 
-- Long-press a slot row
+- long-press a slot row
 
 ### Generate password
 
-- Long-press slot -> `Create new`
+- long-press slot -> `Create new`
 
 ### Type password
 
-- Connect USB to host -> long-press slot -> `Type`
+- connect USB to host -> long-press slot -> `Type`
 
 ### Import CSV
 
-1. Open `Settings -> USB Import / Export`
-2. Enter PIN
-3. Edit `password.csv`
-4. Safely finish host writes
-5. Press `Import keys`
+1. open `Settings -> USB Import / Export`
+2. enter PIN
+3. edit `password.csv`
+4. finish host writes safely
+5. press `Import keys`
 
 ### Import WiFi
 
-1. Open `Settings -> USB Import / Export`
-2. Enter PIN
-3. Edit `wifi.txt`
-4. Press `Import WiFi`
+1. open `Settings -> USB Import / Export`
+2. enter PIN
+3. edit `wifi.txt`
+4. press `Import WiFi`
 
 ### Change PIN
 
