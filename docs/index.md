@@ -155,7 +155,6 @@ Notes:
 
 - Default length is 16
 - The password is built from the enabled character types
-- The generator may not include every selected type in every password
 - Once created, the password is saved directly into that slot
 
 ### Sys keys
