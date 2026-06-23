@@ -17,6 +17,8 @@ What it can do:
 
 Each slot is numbered from `001` to `256`.
 
+### [Jump to the changelog](#11-changelog)
+
 ---
 
 ## 2. First Start and Unlocking
@@ -91,6 +93,7 @@ Actions available:
 - `Change label`
 - `Set colour`
 - `Create new`
+- `Sys keys`
 - `Delete`
 - `Cancel`
 
@@ -155,6 +158,16 @@ Notes:
 - The generator may not include every selected type in every password
 - Once created, the password is saved directly into that slot
 
+### Sys keys
+
+Allows you to submit the following key presses
+
+- Ctrl-Alt-Del
+- Esc
+- Tab
+- Shift-Tab
+- Enter
+
 ### Delete
 
 Deleting a slot removes:
@@ -174,6 +187,7 @@ What you can do:
 - `Lock Timeout`
 - `Dim Timeout`
 - `Flip screen`
+- `Menu after type`
 - `Change PIN`
 - `USB Import / Export`
 - `Firmware update`
@@ -206,6 +220,10 @@ The device ensures the dim timeout always happens before lock timeout.
 ### Flip screen
 
 This rotates the display 180° and takes effect immediately. Convenient if your USB cable is connected from the top of the device, like mine.
+
+### Menu after type
+
+By default the device immediately returns to the main slot list after typing the password, but this setting allows you to override this behaviour (it is useful if you want to use system keys after typing your password)
 
 ### Change PIN
 
@@ -430,3 +448,15 @@ Factory reset removes:
 ### Factory reset
 
 - `Settings -> Factory Reset`
+
+OR (if you forget your PIN)
+1. Disassemble the device
+2. Power it on and wait for the PIN dialog
+3. Press `boot` button (right from the USB-C interface) for 10 seconds.
+
+## 11. Changelog
+
+### [1.0.1] - 2026-06-23
+- Sys keys feature added
+- Factory reset via boot button
+- Password generation improved
