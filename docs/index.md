@@ -16,7 +16,7 @@ What it can do:
 - Dim the screen and auto-lock when idle
 
 Each slot is numbered from `001` to `256`.
-
+### [How to... (quick reference)](#10-quick-reference)
 ### [Jump to the changelog](#11-changelog)
 
 ---
@@ -419,19 +419,51 @@ Factory reset removes:
 
 ### Generate password
 
-- long-press slot -> `Create new`
+1. Long tap to the empty slot
+2. Tap 'Create new"
+3. Select password options and tap "Proceed". The password will get created, but without a label.
+4. If you want to add a label, long tap to the same slot again and tap "Change label". Type your label text with on-screen keyboard and press "Proceed"
+5. Now you have your generated password and the label in this slot. Long tap to it and press "Type". The device will type it for you as if it was a keyboard
 
 ### Type password
 
 - connect USB to host -> long-press slot -> `Type`
 
-### Import CSV
+### Import existing passwords
 
-1. open `Settings -> USB Import / Export`
-2. enter PIN
-3. edit `password.csv`
-4. finish host writes safely
-5. press `Import keys`
+1. Unlock the device and go to ['Settings'](#6-settings)
+2. Tap "USB import/export" and type your PIN again
+3. You'll see the following screen ![USB](./assets/UsbDialog.png)
+
+at the same time a new USB storage device will appear at the computer the device is connected to.
+
+You'll see two files: password.csv and wifi.txt
+
+4. wifi.txt is needed if you want to do over-the-air firmware update. Put your WiFi Name (SSID) into the first line and password into the second line. Save the file and don't forget to tap "Import WiFi" on the device. Both wifi.txt and password.csv are virtual and only exist in the import/export mode.
+
+`Don't open it in Excel, it messes up formatting. Good old Notepad is fine`
+
+5. The format for password.csv is this:
+
+slot,label,password,colour_id
+
+for example
+
+001,EMAIL_MAIN,MySecret123,1
+014,BANK_APP,s7f!2Xq9,3
+128,SERVER_ROOT,RootPass!,0
+
+the last digit is the number of colour:
+
+0 = no colour
+1 = blue
+2 = green
+3 = red
+4 = violet
+5 = yellow
+6 = orange
+
+Once you finish editing password.csv, save the file and tap "Import keys" on the device.
 
 ### Import WiFi
 
