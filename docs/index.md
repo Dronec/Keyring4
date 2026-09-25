@@ -106,8 +106,8 @@ If the slot is empty, only `Create new` and `Cancel` are available.
 Important:
 
 - The device must be connected to a host that accepts USB HID keyboard input (e.g. PC, Mac, Android or iOS phone)
-- It only types password characters
-- It does not press `Enter`, `Tab`, or any other key in the end
+- It only types password characters if a password was generated on the device. If you want to add control keys, see [version 1.0.2 changes](#102---2026-09-25).
+- It does not press `Enter`, `Tab`, or any other key in the end by default, however this can be changed in `Menu after type` setting.
 
 ### Change label
 
@@ -487,7 +487,18 @@ OR (if you forget your PIN)
 
 ## 11. Changelog
 
+### [1.0.2] - 2026-09-25
+- Thanks to Colett Vasquez for the idea, now the passwords can include control key macros. They can be added to your passwords only via [USB Import-Export](#import-existing-passwords). You can add the following macros to your passwords, which will be interpreted accordingly:
+`{@TAB}`
+`{@SHIFT+TAB}`
+`{@ENTER}`
+`{@ESC}`
+`{@WAIT:5s}`
+`{@WAIT:500ms}`
+
+
 ### [1.0.1] - 2026-06-23
 - Sys keys feature added
 - Factory reset via boot button
 - Password generation improved
+
